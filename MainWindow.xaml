@@ -5,14 +5,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Bootstrap 5 SVG icon to Blazor NavMenu icon converter" Height="450" Width="800" ResizeMode="CanMinimize">
     <Grid Background="#FFE2F0F9">
         <TextBox x:Name="txtInput" HorizontalAlignment="Center" Margin="0,39,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="780" Height="70"/>
-        <Button x:Name="btnConvert" Content="Convert" HorizontalAlignment="Left" Margin="10,123,0,0" VerticalAlignment="Top" Height="35" Width="189" Click="btnConvert_Click" FontWeight="Bold" FontSize="14" Foreground="#FF1B580A" BorderBrush="#FF1B580A"/>
+        <Button x:Name="btnConvert" Content="Convert" HorizontalAlignment="Left" Margin="10,123,0,0" VerticalAlignment="Top" Height="35" Width="189" Click="btnConvert_Click" FontWeight="Bold" FontSize="14" Foreground="#FF1B580A" BorderBrush="#FF1B580A" IsDefault="True"/>
         <TextBox x:Name="txtOutputCSS" HorizontalAlignment="Center" Margin="0,189,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="780" Height="94" IsReadOnly="True"/>
         <Label Content="Enter Bootstrap 5 SVG Icon Markup Below:" HorizontalAlignment="Left" Margin="10,13,0,0" VerticalAlignment="Top"/>
         <Label Content="Generated CSS For Blazor Nav Menu Icon " HorizontalAlignment="Left" Margin="10,163,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="txtOutputNavMenuTemplate" HorizontalAlignment="Center" Margin="0,314,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="780" Height="94" IsReadOnly="True"/>
         <Label Content="Generated HTML Markup Template For Nav Menu" HorizontalAlignment="Left" Margin="10,288,0,0" VerticalAlignment="Top"/>
+        <Label Content="Icon Foreground Color:" HorizontalAlignment="Left" Margin="521,128,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtIconForegroundColor" HorizontalAlignment="Left" Margin="654,132,0,0" TextWrapping="Wrap" Text="white" VerticalAlignment="Top" Width="136"/>
+        <Button x:Name="btnVisitBootstrapIconsPage" Content="Visit Bootstrap 5 Icons Page" HorizontalAlignment="Left" Margin="556,13,0,0" VerticalAlignment="Top" Click="btnVisitBootstrapIconsPage_Click" Width="203" Background="#FFE2F0F9" Foreground="#FF102DCC" BorderBrush="#FFE2F0F9"/>
     </Grid>
 </Window>

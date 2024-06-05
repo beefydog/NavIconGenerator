@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System.Diagnostics;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -24,20 +25,28 @@ public partial class MainWindow : Window
     {
         string SVGInput = txtInput.Text.Trim();
         string BootstrapClassValue = GetClassAttributeValue(SVGInput).Split(' ')[1] + "-nav-menu";
+
         string NewSvgData = SVGInput.Replace(Environment.NewLine, "")
             .Replace('"', '\'')
             .Replace("<", "%3C")
             .Replace(">", "%3E")
-            .Replace("currentColor", "white");
-        string CSSOutput = "." + BootstrapClassValue + " {" + Environment.NewLine + "\t" +
-            @"background-image: url(""data:image/svg+xml," +
-            NewSvgData + @""");" + Environment.NewLine + "}";
-        txtOutputCSS.Text = CSSOutput;
-        string NavMenuOutput = @"<div class=""nav-item px-3"">" + Environment.NewLine + "\t" +
-            @"<NavLink class=""nav-link"" href=""pagename"">" + Environment.NewLine + "\t" + "\t" +
-            @"<span class=""bi " + BootstrapClassValue + @""" aria-hidden=""true""></span> Your Page Name" + Environment.NewLine + "\t" +
-          "</NavLink>" + Environment.NewLine + "</div>";
-        txtOutputNavMenuTemplate.Text = NavMenuOutput;
+            .Replace("currentColor", txtIconForegroundColor.Text.Trim());
+
+        StringBuilder cssOutputBuilder = new StringBuilder();
+        cssOutputBuilder.AppendLine("." + BootstrapClassValue + " {")
+            .AppendLine("\tbackground-image: url(\"data:image/svg+xml," + NewSvgData + "\");")
+            .AppendLine("}");
+
+        txtOutputCSS.Text = cssOutputBuilder.ToString();
+
+        StringBuilder navMenuOutputBuilder = new StringBuilder();
+        navMenuOutputBuilder.AppendLine("<div class=\"nav-item px-3\">")
+            .AppendLine("\t<NavLink class=\"nav-link\" href=\"pagename\">")
+            .AppendLine("\t\t<span class=\"bi " + BootstrapClassValue + "\" aria-hidden=\"true\"></span> Your Page Name")
+            .AppendLine("\t</NavLink>")
+            .AppendLine("</div>");
+
+        txtOutputNavMenuTemplate.Text = navMenuOutputBuilder.ToString();
     }
 
     public static string GetClassAttributeValue(string html)
@@ -58,5 +67,15 @@ public partial class MainWindow : Window
         }
 
         return html.Substring(startIndex, endIndex - startIndex);
+    }
+
+
+    private void btnVisitBootstrapIconsPage_Click(object sender, RoutedEventArgs e)
+    {
+        Process.Start(new ProcessStartInfo
+        {
+            FileName = "https://icons.getbootstrap.com/",
+            UseShellExecute = true
+        });
     }
 }
