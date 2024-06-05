@@ -1,0 +1,18 @@
+﻿<Window x:Class="WpfApp1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid Background="#FFE2F0F9">
+        <TextBox x:Name="txtInput" HorizontalAlignment="Center" Margin="0,39,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="780" Height="70"/>
+        <Button x:Name="btnConvert" Content="Convert" HorizontalAlignment="Left" Margin="10,123,0,0" VerticalAlignment="Top" Height="35" Width="189" Click="btnConvert_Click" FontWeight="Bold" FontSize="14" Foreground="#FF1B580A" BorderBrush="#FF1B580A"/>
+        <TextBox x:Name="txtOutputCSS" HorizontalAlignment="Center" Margin="0,189,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="780" Height="94" IsReadOnly="True"/>
+        <Label Content="Enter Bootstrap 5 SVG Icon Markup Below:" HorizontalAlignment="Left" Margin="10,13,0,0" VerticalAlignment="Top"/>
+        <Label Content="Generated CSS For Blazor Nav Menu Icon " HorizontalAlignment="Left" Margin="10,163,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtOutputNavMenuTemplate" HorizontalAlignment="Center" Margin="0,314,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="780" Height="94" IsReadOnly="True"/>
+        <Label Content="Generated HTML Markup Template For Nav Menu" HorizontalAlignment="Left" Margin="10,288,0,0" VerticalAlignment="Top"/>
+    </Grid>
+</Window>
